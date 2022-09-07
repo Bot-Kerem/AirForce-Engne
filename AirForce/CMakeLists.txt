@@ -7,9 +7,19 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 # Core Sources
 set(AF_CORE_SOURCES 
     Source/Core/Game.cpp
+    Source/Core/Window.cpp
     )
 
 add_library(AirForce STATIC ${AF_CORE_SOURCES})
+
+if(WIN32)
+    add_subdirectory("./../third_party/glfw")
+else()
+    find_package(glfw3 REQUIRED)
+    message("FIND GLFW AT: ${glfw3_DIR}")
+endif(WIN32)
+
+target_link_libraries(AirForce PRIVATE glfw)
 
 target_include_directories(AirForce PUBLIC Include)
 
