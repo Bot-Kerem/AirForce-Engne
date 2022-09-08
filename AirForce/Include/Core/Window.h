@@ -1,7 +1,7 @@
 // project: AirForce
 // created by: Bot-Kerem
 // create date: 07.09.2022
-// updated: 07.09.2022
+// updated: 08.09.2022
 
 #ifndef AIRFORCE_WINDOW_H
 #define AIRFORCE_WINDOW_H

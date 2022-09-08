@@ -2,15 +2,18 @@
 #include <Core/Window.h>
 #include <Core/Types.h>
 
-// Standart Headers
+// third party
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+// Standart Headers
 
 namespace AirForce{
 
     void Window::init(){
         Debug("Initializing GLFW");
         if(!glfwInit()){
-            Debug("GLFW couldn't initialized!");
+            Debug("GLFW couldn't initialized!", ERROR);
         }
     }
 
@@ -21,7 +24,17 @@ namespace AirForce{
     }
 
     Window::Window(const char* title, int width, int height){
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
         m_Window = glfwCreateWindow(width, height, title, nullptr, nullptr);
+
+        glfwMakeContextCurrent(m_Window);
+
+        Debug("Loading OpenGL Compatibility Profile");
+        if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
+            Debug("OpenGL Compatibility Profile couldn't loaded!", ERROR);
+        }
     }
 
     bool Window::IsClosed(){
