@@ -21,6 +21,14 @@ namespace AirForce{
         bool IsClosed();
 
         void SwapBuffers();
+        
+        GLFWwindow* getWindow();
+
+        void makeContextCurrent();
+
+        static GLFWwindow* getContextCurrent();
+
+        static void makeContextCurrent(GLFWwindow* window);
 
         static void PollEvents();
 
