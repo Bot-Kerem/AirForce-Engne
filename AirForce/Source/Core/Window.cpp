@@ -9,14 +9,6 @@
 // Standart Headers
 
 namespace AirForce{
-
-    void Window::init(){
-        Debug("Initializing GLFW");
-        if(!glfwInit()){
-            Debug("GLFW couldn't initialized!", ERROR);
-        }
-    }
-
     Window::~Window(){
         glfwSetWindowShouldClose(m_Window, GLFW_TRUE);
         glfwDestroyWindow(m_Window);
@@ -24,6 +16,10 @@ namespace AirForce{
     }
 
     Window::Window(const char* title, int width, int height){
+      Debug("Initializing GLFW");
+        if(!glfwInit()){
+            Debug("GLFW couldn't initialized!", ERROR);
+        }
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
@@ -35,7 +31,7 @@ namespace AirForce{
         if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
             Debug("OpenGL Compatibility Profile couldn't loaded!", ERROR);
         }
-
+        Debug("Turning VSync On");
         glfwSwapInterval(1);
     }
 
@@ -66,5 +62,5 @@ namespace AirForce{
     void Window::PollEvents(){
         glfwPollEvents();
     }
-    
+
 } // namespace AirForce

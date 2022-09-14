@@ -33,8 +33,6 @@ set(AF_GRAPHICS_SOURCES
 set(AF_INCLUDES
     ./Include
 )
-message("includes ${AF_INCLUDES}")
-
 add_library(AirForce STATIC ${AF_CORE_SOURCES} ${AF_GRAPHICS_SOURCES})
 
 if(WIN32)

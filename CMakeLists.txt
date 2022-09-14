@@ -37,7 +37,7 @@ add_executable(Editor ${AF_EDITOR_SOURCES})
 
 target_link_libraries(Editor imgui AirForce)
 
-target_include_directories(AirForce PUBLIC Editor/Include/)
+target_include_directories(AirForce PUBLIC ./Editor/Include)
 
 target_compile_options(${PROJECT_NAME} PRIVATE
   $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>

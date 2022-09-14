@@ -5,15 +5,23 @@
 #ifndef AIRFORCE_EDITOR
 #define AIRFORCE_EDITOR
 
+#include <Core/Window.h>
+
 class Editor
 {
   private:
-    void build();
+    const char* Title = "AirForce Editor";
+    const int Width = 800;
+    const int Height = 600;
+
+    void Build();
+
+    AirForce::Window window{Title, Width, Height};
   public:
     Editor();
-    void run();
+    void Run();
 
-    void Terminate(),
+    void Terminate();
 };
 
 #endif // AIRFORCE_EDITOR

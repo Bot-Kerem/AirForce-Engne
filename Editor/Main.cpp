@@ -1,7 +1,10 @@
 #include <Editor.h>
+// int argc, char const *argv[]
+int main()
+{
+  Editor editor{};
+  editor.Run();
 
-//int main(int argc, char const *argv[])
-//{
-//
-//  return 0;
-//}
+  editor.Terminate();
+  return 0;
+}

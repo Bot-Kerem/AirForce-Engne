@@ -8,20 +8,20 @@
 
 struct GLFWwindow;
 
-namespace AirForce{
-    class Window{
+namespace AirForce
+{
+    class Window
+    {
     private:
         GLFWwindow* m_Window;
     public:
-        static void init();
-
         Window(const char* title, int width, int height);
         ~Window();
 
         bool IsClosed();
 
         void SwapBuffers();
-        
+
         GLFWwindow* getWindow();
 
         void makeContextCurrent();

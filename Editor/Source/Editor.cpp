@@ -1,59 +1,62 @@
-#include <Core/Window.h>
+#include <Editor.h>
+
 #include <Graphics/Renderer.h>
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 
-int main()
+Editor::Editor()
 {
-    AirForce::Window::init();
+  Build();
+}
 
-    AirForce::Window window{"AirForce Editor", 800, 600};
+void Editor::Run()
+{
+  while (!window.IsClosed()){
+      AirForce::Window::PollEvents();
 
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+      AirForce::ClearScreen();
 
-    ImGui::StyleColorsDark();
+      ImGui_ImplOpenGL3_NewFrame();
+      ImGui_ImplGlfw_NewFrame();
+      ImGui::NewFrame();
 
-    ImGuiStyle& style = ImGui::GetStyle();
-    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-    {
-        style.WindowRounding = 0.0f;
-        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-    }
+      ImGui::ShowDemoWindow();
 
-    ImGui_ImplGlfw_InitForOpenGL(window.getWindow(), true);
-    ImGui_ImplOpenGL3_Init("#version 460");
+      ImGui::Render();
+      ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-    AirForce::ClearColor(0.31f, 0.31f, 0.31f); // gray
-    while (!window.IsClosed()){
-        AirForce::Window::PollEvents();
 
-        AirForce::ClearScreen();
 
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
+      window.SwapBuffers();
+  }
+}
 
-        ImGui::ShowDemoWindow();
+void Editor::Build()
+{
+  IMGUI_CHECKVERSION();
+  ImGui::CreateContext();
+  ImGuiIO& io = ImGui::GetIO(); (void)io;
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+  io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+  //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+  ImGui::StyleColorsDark();
 
-        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-        {
-            GLFWwindow* backup_current_context = AirForce::Window::getContextCurrent();
-            ImGui::UpdatePlatformWindows();
-            ImGui::RenderPlatformWindowsDefault();
-            AirForce::Window::makeContextCurrent(backup_current_context);
-        }
+  ImGuiStyle& style = ImGui::GetStyle();
+  if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+  {
+      style.WindowRounding = 0.0f;
+      style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+  }
 
-        window.SwapBuffers();
-    }
-    return 0;
- }
+  ImGui_ImplGlfw_InitForOpenGL(window.getWindow(), true);
+  ImGui_ImplOpenGL3_Init("#version 460");
+
+  AirForce::ClearColor(0.31f, 0.31f, 0.31f); // gray
+}
+
+void Editor::Terminate()
+{
+}
