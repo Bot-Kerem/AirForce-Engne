@@ -28,8 +28,9 @@ target_include_directories(imgui PUBLIC ${THIRD_PARTY_IMGUI_INCLUDES})
 project(Editor)
 
 # Core Sources
-set(AF_EDITOR_SOURCES 
-    Editor/Editor.cpp
+set(AF_EDITOR_SOURCES
+    Editor/Main.cpp
+    Editor/Source/Editor.cpp
     )
 
 add_executable(Editor ${AF_EDITOR_SOURCES})

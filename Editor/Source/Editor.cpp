@@ -5,7 +5,8 @@
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 
-int main(){
+int main()
+{
     AirForce::Window::init();
 
     AirForce::Window window{"AirForce Editor", 800, 600};
@@ -40,10 +41,10 @@ int main(){
         ImGui::NewFrame();
 
         ImGui::ShowDemoWindow();
-        
+
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-    	
+
         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         {
             GLFWwindow* backup_current_context = AirForce::Window::getContextCurrent();

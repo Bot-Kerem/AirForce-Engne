@@ -3,7 +3,6 @@
 // create date: 07.09.2022
 // updated: 07.09.2022
 
-
 #ifndef AIRFORCE_GAME_H
 #define AIRFORCE_GAME_H
 

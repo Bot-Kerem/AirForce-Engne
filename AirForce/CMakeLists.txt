@@ -21,7 +21,7 @@ target_include_directories(glad PUBLIC ${THIRD_PARTY_GLAD_INCLUDE})
 project(AirForce)
 
 # Core Sources
-set(AF_CORE_SOURCES 
+set(AF_CORE_SOURCES
     Source/Core/Game.cpp
     Source/Core/Window.cpp
     )
@@ -33,6 +33,7 @@ set(AF_GRAPHICS_SOURCES
 set(AF_INCLUDES
     ./Include
 )
+message("includes ${AF_INCLUDES}")
 
 add_library(AirForce STATIC ${AF_CORE_SOURCES} ${AF_GRAPHICS_SOURCES})
 
