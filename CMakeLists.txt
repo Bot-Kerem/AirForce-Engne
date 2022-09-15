@@ -31,6 +31,7 @@ project(Editor)
 set(AF_EDITOR_SOURCES
     Editor/Main.cpp
     Editor/Source/Editor.cpp
+    Editor/Source/Builder.cpp
     )
 
 add_executable(Editor ${AF_EDITOR_SOURCES})

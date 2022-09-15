@@ -22,7 +22,6 @@ project(AirForce)
 
 # Core Sources
 set(AF_CORE_SOURCES
-    Source/Core/Game.cpp
     Source/Core/Window.cpp
     )
 
