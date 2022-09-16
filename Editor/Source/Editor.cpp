@@ -1,11 +1,16 @@
 #include <Editor.h>
 
 #include <Graphics/Renderer.h>
-#include <Builder.h>
+
+#include <GUI.h>
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
+
+#include <iostream>
+
+Builder builder{};
 
 Editor::Editor()
 {
@@ -14,7 +19,6 @@ Editor::Editor()
 
 void Editor::Run()
 {
-  Builder builder{"Katanarx"};
   while (!window.IsClosed()){
       AirForce::Window::PollEvents();
 
@@ -24,17 +28,10 @@ void Editor::Run()
       ImGui_ImplGlfw_NewFrame();
       ImGui::NewFrame();
 
-      if(ImGui::Begin("Builder")){
-        if(ImGui::Button("Build")){
-          builder.Build("build");
-        }
-      }
-      ImGui::End();
+      GUI::Show();
 
       ImGui::Render();
       ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-
 
       window.SwapBuffers();
   }

@@ -6,6 +6,7 @@
 #define AIRFORCE_EDITOR
 
 #include <Core/Window.h>
+#include <Builder.h>
 
 class Editor
 {
@@ -13,6 +14,7 @@ class Editor
     const char* Title = "AirForce Editor";
     const int Width = 800;
     const int Height = 600;
+
 
     void Build();
 
