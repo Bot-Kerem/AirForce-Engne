@@ -6,17 +6,17 @@
 #ifndef AIRFORCE_EDITOR_BUILDER_H
 #define AIRFORCE_EDITOR_BUILDER_H
 
-#include <string_view>
 #include <string>
 
 struct WindowSettings
 {
-  std::string_view Title;
+  std::string Title;
 };
 
 struct Project_Settings
 {
-  std::string_view ProjectName;
+  std::string ProjectPath;
+  std::string ProjectName;
   std::string Path;
   WindowSettings Window;
 };
@@ -27,8 +27,9 @@ class Builder
   private:
     void generateSource();
   public:
-    Builder(std::string_view ProjectName);
-    void Build(std::string path);
+    Builder();
+    void Load(std::string ProjectPath);
+    void Build();
     Project_Settings Settings{};
 };
 
