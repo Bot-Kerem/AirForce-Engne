@@ -12,6 +12,7 @@ set(THIRD_PARTY_IMGUI_SOURCES
   "./third_party/imgui/imgui_draw.cpp"
   "./third_party/imgui/imgui_tables.cpp"
   "./third_party/imgui/imgui_widgets.cpp"
+  "./third_party/imgui/misc/cpp/imgui_stdlib.cpp"
   "./third_party/imgui/backends/imgui_impl_glfw.cpp"
   "./third_party/imgui/backends/imgui_impl_opengl3.cpp"
 )
@@ -21,6 +22,7 @@ add_library(imgui STATIC ${THIRD_PARTY_IMGUI_SOURCES})
 set(THIRD_PARTY_IMGUI_INCLUDES
     "./third_party/imgui"
     "./third_party/imgui/backends"
+    "./third_party/imgui/misc/cpp/"
 )
 
 target_include_directories(imgui PUBLIC ${THIRD_PARTY_IMGUI_INCLUDES})
@@ -32,6 +34,13 @@ set(AF_EDITOR_SOURCES
     Editor/Main.cpp
     Editor/Source/Editor.cpp
     Editor/Source/Builder.cpp
+    Editor/Source/Platform.cpp
+
+    # GUI Elements
+    Editor/Source/GUI/DockSpace.cpp
+    Editor/Source/GUI/MenuBar.cpp
+    Editor/Source/GUI/ProjectSettings.cpp
+    Editor/Source/GUI/GUI.cpp
     )
 
 add_executable(Editor ${AF_EDITOR_SOURCES})
