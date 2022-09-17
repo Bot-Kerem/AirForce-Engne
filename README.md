@@ -6,6 +6,8 @@ AirForce is open source and very basic.
 
 ### Editor
 - [x] Editor Window
+- [x] Project Explorer
+- [ ] Folder Viewer
 - [ ] Executable Output
 - [ ] Editor Scene
 - [ ] Editor Camera
