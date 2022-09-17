@@ -1,0 +1,29 @@
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: black;
+    color: white;
+  }
+}
+@media (prefers-color-scheme: light) {
+  body{
+    background-color: white;
+    color: black;
+  }
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+section{
+
+}
+
+.main-header{
+  font-size: 40px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+}
