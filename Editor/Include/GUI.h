@@ -12,6 +12,7 @@ namespace GUI
 
   void DockSpace();
   void MainMenuBar();
+  void ProjectExplorer();
 
   void ProjectSettings();
 } // GUI

@@ -16,6 +16,7 @@ namespace GUI
     {
       if(ImGui::MenuItem("Project Settings")) {isProjectSettingsOpen = !isProjectSettingsOpen;}
       if(ImGui::MenuItem("Open Project")) {builder.Load("");}
+      if(ImGui::MenuItem("Build")) {}
       ImGui::EndMenu();
     }
     ImGui::EndMainMenuBar();

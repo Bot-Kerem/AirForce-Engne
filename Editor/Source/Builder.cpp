@@ -1,5 +1,6 @@
 #include <Builder.h>
 #include <fstream>
+#include <iostream>
 
 #include <Platform.h>
 
@@ -12,6 +13,7 @@ void Builder::Load(std::string ProjectPath)
   if(ProjectPath.empty())
   {
      OpenFolderDialog(Settings.ProjectPath);
+     Settings.ProjectPath.pop_back();
   }
   else
   {

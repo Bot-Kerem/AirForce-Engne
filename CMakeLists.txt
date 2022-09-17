@@ -40,6 +40,7 @@ set(AF_EDITOR_SOURCES
     Editor/Source/GUI/DockSpace.cpp
     Editor/Source/GUI/MenuBar.cpp
     Editor/Source/GUI/ProjectSettings.cpp
+    Editor/Source/GUI/ProjectExplorer.cpp
     Editor/Source/GUI/GUI.cpp
     )
 

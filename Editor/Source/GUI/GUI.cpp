@@ -1,6 +1,5 @@
 #include <GUI.h>
 
-
 bool isProjectSettingsOpen = false;
 
 namespace GUI
@@ -11,6 +10,7 @@ namespace GUI
     GUI::MainMenuBar();
     DockSpace();
 
+    ProjectExplorer();
     if(isProjectSettingsOpen) ProjectSettings();
   }
 }
