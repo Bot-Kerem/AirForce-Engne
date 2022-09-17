@@ -3,10 +3,14 @@
 #include <Builder.h>
 extern Builder builder;
 
+#include <ProjectFolder.h>
+extern Folder ProjectFolder;
+
 #include <imgui.h>
 
-#include <filesystem>
 #include <iostream>
+
+void ShowFolder(Folder& folder);
 
 void GUI::ProjectExplorer()
 {
@@ -16,17 +20,31 @@ void GUI::ProjectExplorer()
   ImGui::SetNextWindowClass(&window_class);
   ImGui::Begin("Project Explorer", nullptr, ImGuiWindowFlags_NoCollapse);
 
-  if (!builder.Settings.ProjectPath.empty())
-  {
-    for (const auto & entry : std::filesystem::directory_iterator(builder.Settings.ProjectPath))
-    {
-      ImGui::Text(std::string(entry.path()).c_str());
-    }
-  }
+  ShowFolder(ProjectFolder);
+
   ImGui::End();
 
   ImGui::SetNextWindowClass(&window_class);
-  ImGui::Begin("Folder", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoCollapse);
+  ImGui::Begin("Folder Viewer", nullptr, ImGuiWindowFlags_NoCollapse);
 
   ImGui::End();
-}
+} // void GUI::ProjectExplorer()
+
+void ShowFolder(Folder& folder)
+{
+  if(!folder.Name.empty())
+  {
+    if(ImGui::TreeNode(folder.Name.c_str()))
+    {
+      for(auto& _folder: folder.Folders)
+      {
+        ShowFolder(_folder);
+      }
+      for(auto& file: folder.Files) // List files in folder
+      {
+        ImGui::Selectable(file.Name.c_str());
+      }
+      ImGui::TreePop();
+    }
+  }
+} // void ShowFolder(Folder& folder)

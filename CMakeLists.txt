@@ -35,6 +35,7 @@ set(AF_EDITOR_SOURCES
     Editor/Source/Editor.cpp
     Editor/Source/Builder.cpp
     Editor/Source/Platform.cpp
+    Editor/Source/ProjectFolder.cpp
 
     # GUI Elements
     Editor/Source/GUI/DockSpace.cpp

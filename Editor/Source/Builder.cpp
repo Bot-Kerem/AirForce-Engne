@@ -1,8 +1,11 @@
 #include <Builder.h>
+#include <Platform.h>
+
+#include <ProjectFolder.h>
+extern Folder ProjectFolder;
+
 #include <fstream>
 #include <iostream>
-
-#include <Platform.h>
 
 Builder::Builder()
 {
@@ -12,13 +15,14 @@ void Builder::Load(std::string ProjectPath)
 {
   if(ProjectPath.empty())
   {
-     OpenFolderDialog(Settings.ProjectPath);
-     Settings.ProjectPath.pop_back();
+    OpenFolderDialog(Settings.ProjectPath);
+    Settings.ProjectPath.pop_back();
   }
   else
   {
     Settings.ProjectPath = ProjectPath;
   }
+  LoadFaF();
 }
 
 void Builder::generateSource()
