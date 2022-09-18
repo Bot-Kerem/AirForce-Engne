@@ -5,8 +5,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-#include <iostream>
-
 namespace AirForce
 {
   Texture::Texture(std::string_view Path)
@@ -23,9 +21,6 @@ namespace AirForce
     int Width, Height, nrChannels;
 
     unsigned char *data = stbi_load(Path.data(), &Width, &Height, &nrChannels, 4);
-    std::cout << "Width: " << Width << '\n';
-    std::cout << "Height: " << Height << '\n';
-    std::cout << "nrChannels: " << nrChannels << '\n';
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Width, Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
