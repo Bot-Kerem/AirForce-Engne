@@ -22,13 +22,13 @@ namespace AirForce
 
     int Width, Height, nrChannels;
 
-    unsigned char *data = stbi_load(Path.data(), &Width, &Height, &nrChannels, 3);
+    unsigned char *data = stbi_load(Path.data(), &Width, &Height, &nrChannels, 4);
     std::cout << "Width: " << Width << '\n';
     std::cout << "Height: " << Height << '\n';
     std::cout << "nrChannels: " << nrChannels << '\n';
     if (data)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, Width, Height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Width, Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
         std::cout << "Loaded: " << Path << '\n';
     }
@@ -53,10 +53,5 @@ namespace AirForce
   unsigned int Texture::GetTexture()
   {
     return m_Texture;
-  }
-
-  void* Texture::GetTexturePtr()
-  {
-    return &m_Texture;
   }
 } // AirForce

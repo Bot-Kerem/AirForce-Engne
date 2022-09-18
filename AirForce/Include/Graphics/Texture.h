@@ -20,7 +20,6 @@ namespace AirForce
       ~Texture();
 
       unsigned int GetTexture();
-      void* GetTexturePtr();
 
       void Bind();
   }; // class Texture

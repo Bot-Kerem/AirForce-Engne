@@ -8,10 +8,13 @@ extern Folder ProjectFolder;
 
 #include <Graphics/Texture.h>
 extern Icon* FileIcon;
+extern Icon* FolderIcon;
 
 #include <imgui.h>
 
 #include <iostream>
+
+Folder* currentFolder = &ProjectFolder;
 
 void ShowFolder(Folder& folder);
 
@@ -30,9 +33,22 @@ void GUI::ProjectExplorer()
   ImGui::SetNextWindowClass(&window_class);
   ImGui::Begin("Folder Viewer", nullptr, ImGuiWindowFlags_NoCollapse);
 
-  ImGui::ImageButton(FileIcon->GetTexturePtr(), ImVec2(500.f, 500.f));
-  ImGui::Button("aa");
+  ImVec2 size = ImGui::GetWindowContentRegionMax();
+  ImGui::Columns(std::max((size.x/100), 1.0f));
+  for(auto& folder: currentFolder->Folders)
+  {
+      ImGui::Image(FolderIcon->GetTexture(), ImVec2(100.f, 100.f));
+      ImGui::Text(folder.Name.c_str());
+      ImGui::NextColumn();
+  }
+  for(auto& file: currentFolder->Files)
+  {
+      ImGui::Image(FileIcon->GetTexture(), ImVec2(100.f, 100.f));
+      ImGui::Text(file.Name.c_str());
+      ImGui::NextColumn();
+  }
 
+  //ImGui::Image(FolderIcon->GetTexture(), ImVec2(100.f, 100.f));//, ImVec2(0,0), ImVec2(1,1), ss);
   ImGui::End();
 } // void GUI::ProjectExplorer()
 
@@ -44,7 +60,7 @@ void ShowFolder(Folder& folder)
     {
       for(auto& _folder: folder.Folders)
       {
-        ShowFolder(_folder);
+        ShowFolder(_folder); // List folders in folder
       }
       for(auto& file: folder.Files) // List files in folder
       {

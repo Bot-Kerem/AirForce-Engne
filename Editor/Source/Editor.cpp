@@ -56,7 +56,7 @@ void Editor::Build()
   }
 
   ImGui_ImplGlfw_InitForOpenGL(window.getWindow(), true);
-  ImGui_ImplOpenGL3_Init("#version 460");
+  ImGui_ImplOpenGL3_Init("#version 460 compatibility");
 
   GUI::LoadIcons();
 

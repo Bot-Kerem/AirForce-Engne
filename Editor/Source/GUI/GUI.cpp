@@ -3,6 +3,7 @@
 #include <Graphics/Texture.h>
 
 Icon* FileIcon;
+Icon* FolderIcon;
 
 bool isProjectSettingsOpen = false;
 
