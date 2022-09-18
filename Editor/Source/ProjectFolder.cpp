@@ -22,6 +22,7 @@ void LoadDIR(const std::string& Path, Folder& folder)
         if (p.is_directory())
         {
           folder.Folders.push_back(Folder{&folder, p.path().filename()});
+
         }
         else
         {

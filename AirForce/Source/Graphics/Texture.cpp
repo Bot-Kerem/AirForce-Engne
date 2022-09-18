@@ -5,6 +5,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
+#include <iostream>
+
 namespace AirForce
 {
   Texture::Texture(std::string_view Path)

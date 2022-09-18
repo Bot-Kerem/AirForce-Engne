@@ -34,21 +34,61 @@ void GUI::ProjectExplorer()
   ImGui::Begin("Folder Viewer", nullptr, ImGuiWindowFlags_NoCollapse);
 
   ImVec2 size = ImGui::GetWindowContentRegionMax();
-  ImGui::Columns(std::max((size.x/100), 1.0f));
+  ImGui::Columns(std::max((size.x/100) - 1, 1.0f));
+  // PARENT
+  if(currentFolder->Parent)
+  {
+    ImGui::ImageButton(FolderIcon->GetTexture(), ImVec2(100.f, 100.f), {1, 0}, {0, 1}, 0, {0.31f, 0.31f, 0.28f, 0.7f}); // FIXME: Add Parent Folder Icon
+    if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
+    {
+      currentFolder = currentFolder->Parent;
+    }
+    if(currentFolder->Parent) ImGui::Text(currentFolder->Parent->Name.c_str());
+    ImGui::NextColumn();
+  }
+
+  // PARENT
+  int ID = 0;
   for(auto& folder: currentFolder->Folders)
   {
-      ImGui::Image(FolderIcon->GetTexture(), ImVec2(100.f, 100.f));
+      ImGui::PushID(ID++);
+      ImGui::ImageButton(FolderIcon->GetTexture(), ImVec2(100.f, 100.f), {1, 0}, {0, 1}, 0, {0.31f, 0.31f, 0.28f, 0.7f});
+      if(ImGui::BeginDragDropSource())
+      {
+        ImGui::SetDragDropPayload("PROJECT_EXPLORER_DIR", &folder, 8, ImGuiCond_Once); // Pointers are 8 bytes
+        ImGui::ImageButton(FolderIcon->GetTexture(), ImVec2(100.f, 100.f), {1, 0}, {0, 1}, 0, {0.31f, 0.31f, 0.28f, 0.7f});
+        ImGui::Text(folder.Name.c_str());
+        ImGui::EndDragDropSource();
+      }
+      if(ImGui::BeginDragDropTarget())
+      {
+        ImGui::AcceptDragDropPayload("PROJECT_EXPLORER_FILE");
+        ImGui::EndDragDropTarget();
+      }
+      if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
+      {
+        currentFolder = &folder;
+      }
       ImGui::Text(folder.Name.c_str());
       ImGui::NextColumn();
+      ImGui::PopID();
   }
   for(auto& file: currentFolder->Files)
   {
-      ImGui::Image(FileIcon->GetTexture(), ImVec2(100.f, 100.f));
+      ImGui::PushID(ID++);
+      ImGui::ImageButton(FileIcon->GetTexture(), ImVec2(100.f, 100.f), {1, 0}, {0, 1}, 0, {0.31f, 0.31f, 0.28f, 0.7f});
+      if(ImGui::BeginDragDropSource())
+      {
+        ImGui::SetDragDropPayload("PROJECT_EXPLORER_FILE", &file, 8, ImGuiCond_Once); // Pointers are 8 bytes
+        ImGui::ImageButton(FileIcon->GetTexture(), ImVec2(100.f, 100.f), {1, 0}, {0, 1}, 0, {0.31f, 0.31f, 0.28f, 0.7f});
+        ImGui::Text(file.Name.c_str());
+        ImGui::EndDragDropSource();
+      }
       ImGui::Text(file.Name.c_str());
       ImGui::NextColumn();
+      ImGui::PopID();
   }
 
-  //ImGui::Image(FolderIcon->GetTexture(), ImVec2(100.f, 100.f));//, ImVec2(0,0), ImVec2(1,1), ss);
   ImGui::End();
 } // void GUI::ProjectExplorer()
 
