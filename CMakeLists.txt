@@ -43,6 +43,7 @@ set(AF_EDITOR_SOURCES
     Editor/Source/GUI/ProjectSettings.cpp
     Editor/Source/GUI/ProjectExplorer.cpp
     Editor/Source/GUI/GUI.cpp
+    Editor/Source/GUI/LoadGUI.cpp
     )
 
 add_executable(Editor ${AF_EDITOR_SOURCES})

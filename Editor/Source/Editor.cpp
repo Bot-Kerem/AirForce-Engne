@@ -58,9 +58,12 @@ void Editor::Build()
   ImGui_ImplGlfw_InitForOpenGL(window.getWindow(), true);
   ImGui_ImplOpenGL3_Init("#version 460");
 
+  GUI::LoadIcons();
+
   AirForce::ClearColor(0.31f, 0.31f, 0.31f); // gray
 }
 
 void Editor::Terminate()
 {
+  GUI::FreeIcons();
 }

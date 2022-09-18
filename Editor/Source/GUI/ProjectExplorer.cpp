@@ -6,6 +6,9 @@ extern Builder builder;
 #include <ProjectFolder.h>
 extern Folder ProjectFolder;
 
+#include <Graphics/Texture.h>
+extern Icon* FileIcon;
+
 #include <imgui.h>
 
 #include <iostream>
@@ -26,6 +29,9 @@ void GUI::ProjectExplorer()
 
   ImGui::SetNextWindowClass(&window_class);
   ImGui::Begin("Folder Viewer", nullptr, ImGuiWindowFlags_NoCollapse);
+
+  ImGui::ImageButton(FileIcon->GetTexturePtr(), ImVec2(500.f, 500.f));
+  ImGui::Button("aa");
 
   ImGui::End();
 } // void GUI::ProjectExplorer()

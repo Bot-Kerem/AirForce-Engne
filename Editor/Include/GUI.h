@@ -15,6 +15,9 @@ namespace GUI
   void ProjectExplorer();
 
   void ProjectSettings();
+
+  void LoadIcons();
+  void FreeIcons();
 } // GUI
 
 #endif // AIRFORCE_EDITOR_GUI

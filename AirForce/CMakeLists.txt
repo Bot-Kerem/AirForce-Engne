@@ -5,6 +5,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 project(glad)
 
+set(THIRD_PARTY_STB_INCLUDE
+  "./../third_party/stb"
+)
+
 set(THIRD_PARTY_GLAD_SOURCE
     "./../third_party/glad/src/glad.c"
 )
@@ -27,6 +31,7 @@ set(AF_CORE_SOURCES
 
 set(AF_GRAPHICS_SOURCES
     Source/Graphics/Renderer.cpp
+    Source/Graphics/Texture.cpp
     )
 
 set(AF_INCLUDES
@@ -36,11 +41,13 @@ add_library(AirForce STATIC ${AF_CORE_SOURCES} ${AF_GRAPHICS_SOURCES})
 
 if(WIN32)
     add_subdirectory("./../third_party/glfw")
-    set(THIRD_PARTY_GLAD_INCLUDE ${THIRD_PARTY_GLAD_INCLUDE} ./../third_party/glfw/include)
+    set(AF_THIRD_PARTY_INCLUDES ${THIRD_PARTY_GLAD_INCLUDE} ./../third_party/glfw/include)
 else()
     find_package(glfw3 REQUIRED)
     message("FIND GLFW AT: ${glfw3_DIR}")
 endif(WIN32)
+
+set(AF_THIRD_PARTY_INCLUDES ${AF_THIRD_PARTY_INCLUDES} ${THIRD_PARTY_STB_INCLUDE})
 
 target_link_libraries(AirForce PRIVATE glfw glad)
 
