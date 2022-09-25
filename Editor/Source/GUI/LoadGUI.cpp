@@ -17,5 +17,7 @@ namespace GUI
   void FreeIcons()
   {
     delete FileIcon;
+    delete FolderIcon;
+    delete ParentFolderIcon;
   }
 } // namespace GUI

@@ -38,7 +38,6 @@ namespace AirForce
 
   Texture::~Texture()
   {
-    std::cout << "Deleted: " << '\n';
     glDeleteTextures(1 , &m_Texture);
   } // Texture::~Texture()
 
