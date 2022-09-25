@@ -3,6 +3,7 @@
 #include <Graphics/Texture.h>
 extern Icon* FileIcon;
 extern Icon* FolderIcon;
+extern Icon* ParentFolderIcon;
 
 namespace GUI
 {
@@ -10,6 +11,7 @@ namespace GUI
   {
     FileIcon = new Icon{"./../Resources/File.png"};
     FolderIcon = new Icon{"./../Resources/Folder.png"};
+    ParentFolderIcon = new Icon{"./../Resources/ParentFolder.png"};
   } // void LoadIcons()
 
   void FreeIcons()

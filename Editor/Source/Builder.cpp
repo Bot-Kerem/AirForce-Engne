@@ -41,7 +41,6 @@ void Builder::Load(std::string ProjectPath)
     Settings["path"] = ProjectPath;
   }
   LoadCache();
-  LoadFaF();
 }
 
 void Builder::generateSource()

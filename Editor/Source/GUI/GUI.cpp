@@ -4,6 +4,7 @@
 
 Icon* FileIcon;
 Icon* FolderIcon;
+Icon* ParentFolderIcon;
 
 bool isProjectSettingsOpen = false;
 
