@@ -31,7 +31,7 @@ void GUI::ProjectExplorer()
   ImGui::Begin("Folder Viewer", nullptr, ImGuiWindowFlags_NoCollapse);
 
   ImVec2 size = ImGui::GetWindowContentRegionMax();
-  ImGui::Columns(std::max((size.x/100), 1.0f));
+  ImGui::Columns(std::max((size.x/120), 1.0f));
 
   auto up_dir = std::filesystem::path(viewFolder).parent_path();
   int ID = 0;
