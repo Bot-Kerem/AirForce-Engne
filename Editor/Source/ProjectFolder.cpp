@@ -11,8 +11,8 @@ std::string getFolderPath(Folder& folder);
 
 void LoadFaF()
 {
-  LoadDIR(builder.Settings.ProjectPath, ProjectFolder);
-  ProjectFolder.Name = builder.Settings.ProjectName;
+  LoadDIR(builder.Settings["path"], ProjectFolder);
+  ProjectFolder.Name = builder.Settings["Name"];
 } // void LoadFaF()
 
 void LoadDIR(const std::string& Path, Folder& folder)
@@ -40,7 +40,7 @@ std::string getFolderPath(Folder& folder)
 {
     if(folder.Parent == nullptr)
     {
-      return builder.Settings.ProjectPath + "/" +  folder.Name;
+      return builder.Settings["path"] + "/" +  folder.Name;
     }
     return getFolderPath(*folder.Parent) + "/" + folder.Name;
 } // std::string getFolderPath(Folder& folder)

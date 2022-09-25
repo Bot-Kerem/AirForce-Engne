@@ -16,7 +16,7 @@ namespace GUI
     ImGui::Begin("Project Settings", &isProjectSettingsOpen);
     ImGui::Text("Project Name ");
     ImGui::SameLine();
-    ImGui::InputText("##ProjectName", &(builder.Settings.ProjectName));
+    ImGui::InputText("##ProjectName", &(builder.Settings["Name"]));
     ImGui::End();
   }
 }

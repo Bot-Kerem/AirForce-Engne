@@ -59,6 +59,7 @@ void Editor::Build()
   ImGui_ImplOpenGL3_Init("#version 460 compatibility");
 
   GUI::LoadIcons();
+  builder.Load("/home/kereem/Desktop/AirForceProject");
 
   AirForce::ClearColor(0.31f, 0.31f, 0.31f); // gray
 }

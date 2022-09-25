@@ -7,20 +7,7 @@
 #define AIRFORCE_EDITOR_BUILDER_H
 
 #include <string>
-
-struct WindowSettings
-{
-  std::string Title;
-};
-
-struct Project_Settings
-{
-  std::string ProjectPath;
-  std::string ProjectName;
-  std::string Path;
-  WindowSettings Window;
-};
-
+#include <map>
 
 class Builder
 {
@@ -30,7 +17,8 @@ class Builder
     Builder();
     void Load(std::string ProjectPath);
     void Build();
-    Project_Settings Settings{};
+    void LoadCache();
+    std::map<std::string, std::string> Settings{};
 };
 
 
