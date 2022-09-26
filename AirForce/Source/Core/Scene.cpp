@@ -1,6 +1,8 @@
 #include <Core/Scene.h>
 
+#include <glad/glad.h>
 #include <Graphics/Renderer.h>
+
 
 namespace AirForce
 {
@@ -14,6 +16,7 @@ namespace AirForce
     {
         m_Framebuffer.Bind();
         AirForce::ClearScreen();
+
         m_Framebuffer.UnBind();
     }
 } // namespace AirForce
