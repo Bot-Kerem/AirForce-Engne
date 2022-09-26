@@ -1,6 +1,7 @@
 #include <Editor.h>
 
 #include <Graphics/Renderer.h>
+#include <Core/Scene.h>
 
 #include <GUI.h>
 
@@ -11,6 +12,7 @@
 #include <iostream>
 
 Builder builder{};
+AirForce::Scene scene{"Main Scene"};
 
 Editor::Editor()
 {
@@ -22,16 +24,9 @@ void Editor::Run()
   while (!window.IsClosed()){
       AirForce::Window::PollEvents();
 
-      AirForce::ClearScreen();
-
-      ImGui_ImplOpenGL3_NewFrame();
-      ImGui_ImplGlfw_NewFrame();
-      ImGui::NewFrame();
+      //AirForce::ClearScreen();
 
       GUI::Show();
-
-      ImGui::Render();
-      ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
       window.SwapBuffers();
   }
@@ -39,26 +34,9 @@ void Editor::Run()
 
 void Editor::Build()
 {
-  IMGUI_CHECKVERSION();
-  ImGui::CreateContext();
-  ImGuiIO& io = ImGui::GetIO(); (void)io;
-  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-  io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-  //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-
-  ImGui::StyleColorsDark();
-
-  ImGuiStyle& style = ImGui::GetStyle();
-  if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-  {
-      style.WindowRounding = 0.0f;
-      style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-  }
-
-  ImGui_ImplGlfw_InitForOpenGL(window.getWindow(), true);
-  ImGui_ImplOpenGL3_Init("#version 460 compatibility");
-
+  GUI::LoadImGui(window.getWindow());
   GUI::LoadIcons();
+
   builder.Load("/home/kereem/Desktop/AirForceProject");
 
   AirForce::ClearColor(0.31f, 0.31f, 0.31f); // gray

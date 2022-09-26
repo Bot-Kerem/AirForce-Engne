@@ -27,6 +27,7 @@ project(AirForce)
 # Core Sources
 set(AF_CORE_SOURCES
     Source/Core/Window.cpp
+    Source/Core/Scene.cpp
     )
 
 set(AF_GRAPHICS_SOURCES

@@ -42,6 +42,8 @@ set(AF_EDITOR_SOURCES
     Editor/Source/GUI/MenuBar.cpp
     Editor/Source/GUI/ProjectSettings.cpp
     Editor/Source/GUI/ProjectExplorer.cpp
+    Editor/Source/GUI/SceneEditor.cpp
+
     Editor/Source/GUI/GUI.cpp
     Editor/Source/GUI/LoadGUI.cpp
     )

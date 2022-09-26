@@ -33,10 +33,10 @@ void GUI::ProjectExplorer()
   ImVec2 size = ImGui::GetWindowContentRegionMax();
   ImGui::Columns(std::max((size.x/120), 1.0f));
 
-  auto up_dir = std::filesystem::path(viewFolder).parent_path();
   int ID = 0;
   if(viewFolder != builder.Settings["path"])
   {
+    auto up_dir = std::filesystem::path(viewFolder).parent_path();
     ImGui::PushID(ID++);
     ImGui::ImageButton(ParentFolderIcon->GetTexture(), ImVec2(100.f, 100.f), {0, 0}, {1, 1}, 0, {0.31f, 0.31f, 0.28f, 0.7f});
     if(ImGui::BeginDragDropTarget())

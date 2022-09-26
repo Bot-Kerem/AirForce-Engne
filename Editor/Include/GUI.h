@@ -6,6 +6,10 @@
 #ifndef AIRFORCE_EDITOR_GUI
 #define AIRFORCE_EDITOR_GUI
 
+#include <Core/Scene.h>
+
+struct GLFWwindow;
+
 namespace GUI
 {
   void Show();
@@ -16,6 +20,9 @@ namespace GUI
 
   void ProjectSettings();
 
+  void SceneEditor(AirForce::Scene& scene);
+
+  void LoadImGui(GLFWwindow* window);
   void LoadIcons();
   void FreeIcons();
 } // GUI
