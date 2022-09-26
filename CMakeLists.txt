@@ -34,7 +34,6 @@ set(AF_EDITOR_SOURCES
     Editor/Main.cpp
     Editor/Source/Editor.cpp
     Editor/Source/Builder.cpp
-    Editor/Source/Platform.cpp
     Editor/Source/ProjectFolder.cpp
 
     # GUI Elements

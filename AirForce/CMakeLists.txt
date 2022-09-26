@@ -28,13 +28,14 @@ project(AirForce)
 set(AF_CORE_SOURCES
     Source/Core/Window.cpp
     Source/Core/Scene.cpp
+    Source/Core/Platform.cpp
     )
 
 set(AF_GRAPHICS_SOURCES
     Source/Graphics/Renderer.cpp
     Source/Graphics/Texture.cpp
     Source/Graphics/Framebuffer.cpp
-    Include/Core/Types.h
+    Source/Core/Shader.cpp
     )
 
 set(AF_INCLUDES
