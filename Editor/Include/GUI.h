@@ -12,11 +12,12 @@ struct GLFWwindow;
 
 namespace GUI
 {
-  void Show();
+  void Show(AirForce::Scene& scene);
 
   void DockSpace();
   void MainMenuBar();
   void ProjectExplorer();
+  void SceneEdit(AirForce::Scene& scene);
 
   void ProjectSettings();
 

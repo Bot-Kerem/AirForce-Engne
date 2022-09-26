@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23.3)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 
 
 add_subdirectory("AirForce")
@@ -43,6 +43,7 @@ set(AF_EDITOR_SOURCES
     Editor/Source/GUI/ProjectSettings.cpp
     Editor/Source/GUI/ProjectExplorer.cpp
     Editor/Source/GUI/SceneEditor.cpp
+    Editor/Source/GUI/SceneEdit.cpp
 
     Editor/Source/GUI/GUI.cpp
     Editor/Source/GUI/LoadGUI.cpp

@@ -9,6 +9,11 @@
 
 namespace AirForce
 {
+  Texture::Texture()
+  {
+    glGenTextures(1, &m_Texture);
+  }
+
   Texture::Texture(std::string_view Path)
   {
     glGenTextures(1, &m_Texture);
@@ -27,7 +32,6 @@ namespace AirForce
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Width, Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
-        std::cout << "Loaded: " << Path << '\n';
     }
     else
     {
@@ -44,10 +48,5 @@ namespace AirForce
   void Texture::Bind()
   {
     glBindTexture(GL_TEXTURE_2D, m_Texture);
-  }
-
-  unsigned int Texture::GetTexture()
-  {
-    return m_Texture;
   }
 } // AirForce

@@ -17,9 +17,10 @@ namespace AirForce
 
     public:
       Texture(std::string_view Path);
+      Texture();
       ~Texture();
 
-      unsigned int GetTexture();
+    inline unsigned int GetTexture() const{return m_Texture;}
 
       void Bind();
   }; // class Texture

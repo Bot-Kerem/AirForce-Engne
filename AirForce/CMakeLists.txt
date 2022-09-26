@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23.3)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 
 
 project(glad)
@@ -33,6 +33,8 @@ set(AF_CORE_SOURCES
 set(AF_GRAPHICS_SOURCES
     Source/Graphics/Renderer.cpp
     Source/Graphics/Texture.cpp
+    Source/Graphics/Framebuffer.cpp
+    Include/Core/Types.h
     )
 
 set(AF_INCLUDES

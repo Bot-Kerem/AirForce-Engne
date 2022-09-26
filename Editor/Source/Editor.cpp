@@ -1,9 +1,8 @@
 #include <Editor.h>
 
 #include <Graphics/Renderer.h>
-#include <Core/Scene.h>
-
 #include <GUI.h>
+#include <Builder.h>
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
@@ -12,7 +11,6 @@
 #include <iostream>
 
 Builder builder{};
-AirForce::Scene scene{"Main Scene"};
 
 Editor::Editor()
 {
@@ -26,7 +24,9 @@ void Editor::Run()
 
       //AirForce::ClearScreen();
 
-      GUI::Show();
+      m_Scene.Draw();
+
+      GUI::Show(m_Scene);
 
       window.SwapBuffers();
   }

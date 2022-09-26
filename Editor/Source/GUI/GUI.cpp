@@ -11,12 +11,9 @@ bool isProjectSettingsOpen = false;
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 
-#include <Core/Scene.h>
-extern AirForce::Scene scene;
-
 namespace GUI
 {
-  void Show()
+  void Show(AirForce::Scene& scene)
   {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -29,6 +26,7 @@ namespace GUI
     ProjectExplorer();
     if(isProjectSettingsOpen) ProjectSettings();
 
+    SceneEdit(scene);
     SceneEditor(scene);
 
     ImGui::Render();

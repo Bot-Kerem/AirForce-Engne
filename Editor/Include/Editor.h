@@ -6,7 +6,7 @@
 #define AIRFORCE_EDITOR
 
 #include <Core/Window.h>
-#include <Builder.h>
+#include <Core/Scene.h>
 
 class Editor
 {
@@ -15,15 +15,17 @@ class Editor
     const int Width = 800;
     const int Height = 600;
 
-
     void Build();
 
     AirForce::Window window{Title, Width, Height};
+    AirForce::Scene m_Scene{"Main Scene"};
+    
   public:
     Editor();
     void Run();
 
     void Terminate();
+
 };
 
 #endif // AIRFORCE_EDITOR
