@@ -1,5 +1,4 @@
 #include <GUI.h>
-#include <Platform.h>
 
 #include <imgui.h>
 #include <imgui_stdlib.h>

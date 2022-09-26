@@ -1,5 +1,5 @@
 #include <Builder.h>
-#include <Platform.h>
+#include <Core/Platform.h>
 
 #include <ProjectFolder.h>
 extern Folder ProjectFolder;
