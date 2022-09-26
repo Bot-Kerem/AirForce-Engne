@@ -9,5 +9,6 @@
 #include <string>
 
 void OpenFolderDialog(std::string& Path);
+std::string OpenFile(std::string& Path);
 
 #endif // AIRFORCE_EDITOR_PLATFORM
