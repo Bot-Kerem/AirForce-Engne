@@ -38,6 +38,21 @@ namespace GUI
                 ImGui::Text("Max Steps");
                 ImGui::SameLine();
                 ImGui::DragInt("##MaxSteps", &(scene.m_Camera.MaxSteps), 1.0f, 0, UINT8_MAX);
+                ImGui::Text("Surface Distance");
+                ImGui::SameLine();
+                ImGui::DragFloat("##SurfDist", &(scene.m_Camera.SurfDistance), 0.01f, 0.0f, 10.0f, "%.3f");
+
+                ImGui::Text("K");
+                ImGui::SameLine();
+                ImGui::DragFloat("##K", &(scene.m_Camera.k), 0.001f, 0.001f, 10.0f, "%.3f");
+
+                ImGui::Text("Yaw");
+                ImGui::SameLine();
+                ImGui::DragFloat("##Yaw", &(scene.m_Camera.Yaw), 0.1f, 0.0f, 90.0f, "%.1f");
+
+                ImGui::Text("Pitch");
+                ImGui::SameLine();
+                ImGui::DragFloat("##Pitch", &(scene.m_Camera.Pitch), 0.1f, 0.0f, 90.0f, "%.1f");
                 ImGui::TreePop();
             }
 

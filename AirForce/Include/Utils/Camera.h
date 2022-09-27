@@ -17,7 +17,11 @@ namespace AirForce
         public:
             Camera(glm::vec3 Position = {0.0f, 0.0f, 0.0f});
             float ViewDistance = 100.0f;
+            float SurfDistance = 0.01;
             int MaxSteps = 100;
+            float k = 0.001f;
+            float Yaw = 45.0f;
+            float Pitch = 45.0f;
 
             glm::vec3 Position;
     };

@@ -88,5 +88,10 @@ namespace AirForce
     {
         glUniform1i(getUniformLocation(uniformName), val);
     }
+
+    void Shader::setMat4(const char* uniformName, glm::mat4* ptrMatrix)
+    {
+        glUniformMatrix4fv(getUniformLocation(uniformName), 1, GL_FALSE, (float*)(ptrMatrix));
+    }
     
 } // namespace AirForce

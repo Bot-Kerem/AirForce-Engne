@@ -8,6 +8,7 @@
 
 #include <string>
 #include <glm/vec3.hpp>
+#include <glm/mat4x4.hpp>
 
 namespace AirForce
 {
@@ -25,6 +26,8 @@ namespace AirForce
 
             void setVec3(const char* uniformName, const glm::vec3& val);
             void setVec3(const char* uniformName, glm::vec3&& val);
+
+            void setMat4(const char* uniformName, glm::mat4* ptrMatrix);
     };
 } // namespace AirForce
 

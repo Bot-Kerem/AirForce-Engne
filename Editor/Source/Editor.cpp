@@ -25,6 +25,7 @@ void Editor::Run()
 
       //AirForce::ClearScreen();
       if(glfwGetKey(window.getWindow(), GLFW_KEY_SPACE)) { m_Scene.m_Camera.Position.y += 0.1; }
+      if(glfwGetKey(window.getWindow(), GLFW_KEY_LEFT_CONTROL)) {m_Scene.m_Camera.Position.y -= 0.1; }
       if(glfwGetKey(window.getWindow(), GLFW_KEY_W)) { m_Scene.m_Camera.Position.z += 0.1; }
       if(glfwGetKey(window.getWindow(), GLFW_KEY_S)) { m_Scene.m_Camera.Position.z -= 0.1; }
       if(glfwGetKey(window.getWindow(), GLFW_KEY_D)) { m_Scene.m_Camera.Position.x -= 0.1; }
