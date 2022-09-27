@@ -17,6 +17,9 @@ namespace AirForce
         m_Framebuffer.Bind();
         AirForce::ClearScreen();
 
+        m_Shader.use();
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
         m_Framebuffer.UnBind();
     }
 } // namespace AirForce

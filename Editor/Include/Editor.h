@@ -7,7 +7,6 @@
 
 #include <Core/Window.h>
 #include <Core/Scene.h>
-#include <Core/Shader.h>
 
 class Editor
 {
@@ -20,7 +19,6 @@ class Editor
 
     AirForce::Window window{Title, Width, Height};
     AirForce::Scene m_Scene{"Main Scene"};
-    AirForce::Shader m_Shader{"./../Shaders/raymarch.vs", "./../Shaders/raymarch.fs"};
     
   public:
     Editor();

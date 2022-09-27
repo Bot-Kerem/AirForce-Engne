@@ -7,6 +7,7 @@
 #define AIRFORCE_SHADER_H
 
 #include <string>
+#include <glm/vec3.hpp>
 
 namespace AirForce
 {
@@ -14,8 +15,13 @@ namespace AirForce
     {
         private:
             unsigned int m_Program{0};
+            unsigned int getUniformLocation(const char* uniformName);
         public:
             Shader(std::string VertexShaderPath, std::string FragmentShaderPath);
+            void use();
+
+            void setVec3(const char* uniformName, const glm::vec3& val);
+            void setVec3(const char* uniformName, glm::vec3&& val);
     };
 } // namespace AirForce
 

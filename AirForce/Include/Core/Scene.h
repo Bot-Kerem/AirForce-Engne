@@ -7,12 +7,11 @@
 #define AIRFORCE_SCENE_H
 
 #include <Graphics/Framebuffer.h>
+#include <Core/Shader.h>
 
 #include <glm/vec3.hpp>
 
 #include <string>
-
-#include <glm/vec3.hpp>
 
 namespace AirForce
 {
@@ -23,6 +22,8 @@ namespace AirForce
     public:
         std::string Name;
         glm::vec3 ClearColor;
+        AirForce::Shader m_Shader{"./../Shaders/raymarch.vs", "./../Shaders/raymarch.fs"};
+        
         Scene(std::string Name, glm::vec3 ClearColor = {0.31f, 0.31f, 0.31f});
 
         void Draw();

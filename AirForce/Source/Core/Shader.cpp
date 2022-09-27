@@ -46,8 +46,37 @@ namespace AirForce
 
         glLinkProgram(m_Program);
 
+        int isLinked = 0;
+        glGetProgramiv(m_Program, GL_LINK_STATUS, &isLinked);
+        if(!isLinked)
+        {
+            char log[512];
+            glGetProgramInfoLog(m_Program, 512, 0, log);
+            Debug(std::string{log}.c_str() , ERROR);
+        }
+
         glDeleteShader(VertexShader);
         glDeleteShader(FragmentShader);
+    }
+
+    void Shader::use()
+    {
+        glUseProgram(m_Program);
+    }
+
+    unsigned int Shader::getUniformLocation(const char* uniformName)
+    {
+        return glGetUniformLocation(m_Program, uniformName);
+    }
+
+    void Shader::setVec3(const char* uniformName, const glm::vec3& val)
+    {
+        glUniform3f(getUniformLocation(uniformName), val.x, val.y, val.z);
+    }
+
+    void Shader::setVec3(const char* uniformName, glm::vec3&& val)
+    {
+        glUniform3f(getUniformLocation(uniformName), val.x, val.y, val.z);
     }
     
 } // namespace AirForce
