@@ -78,5 +78,15 @@ namespace AirForce
     {
         glUniform3f(getUniformLocation(uniformName), val.x, val.y, val.z);
     }
+
+    void Shader::setFloat(const char* uniformName, float val)
+    {
+        glUniform1f(getUniformLocation(uniformName), val);
+    }
+
+    void Shader::setInt(const char* uniformName, int val)
+    {
+        glUniform1i(getUniformLocation(uniformName), val);
+    }
     
 } // namespace AirForce

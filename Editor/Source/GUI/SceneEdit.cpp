@@ -30,6 +30,17 @@ namespace GUI
                 ImGui::EndPopup();
             }
 
+            if(ImGui::TreeNode("Ray Marching"))
+            {
+                ImGui::Text("View Distance");
+                ImGui::SameLine();
+                ImGui::DragFloat("##ViewDistance", &(scene.m_Camera.ViewDistance), 0.1f, 0.0f, FLT_MAX, "%.1f");
+                ImGui::Text("Max Steps");
+                ImGui::SameLine();
+                ImGui::DragInt("##MaxSteps", &(scene.m_Camera.MaxSteps), 1.0f, 0, UINT8_MAX);
+                ImGui::TreePop();
+            }
+
         ImGui::End();
     }
 } // namespace GUI

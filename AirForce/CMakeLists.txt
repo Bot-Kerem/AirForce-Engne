@@ -31,6 +31,7 @@ set(AF_CORE_SOURCES
     Source/Core/Platform.cpp
     )
 
+# Graphics Sources
 set(AF_GRAPHICS_SOURCES
     Source/Graphics/Renderer.cpp
     Source/Graphics/Texture.cpp
@@ -38,10 +39,15 @@ set(AF_GRAPHICS_SOURCES
     Source/Core/Shader.cpp
     )
 
+# Utils Sources
+set(AF_UTILS_SOURCES
+    Source/Utils/Camera.cpp
+)
+
 set(AF_INCLUDES
     ./Include
 )
-add_library(AirForce STATIC ${AF_CORE_SOURCES} ${AF_GRAPHICS_SOURCES})
+add_library(AirForce STATIC ${AF_CORE_SOURCES} ${AF_GRAPHICS_SOURCES} ${AF_UTILS_SOURCES})
 
 if(WIN32)
     add_subdirectory("./../third_party/glfw")

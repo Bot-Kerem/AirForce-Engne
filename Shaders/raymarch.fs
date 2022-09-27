@@ -1,19 +1,32 @@
 #version 460 compatibility
 
-#define MAX_STEPS 100
-#define MAX_DIST 100.
+uniform int MAX_STEPS;
+uniform float MAX_DIST;
 #define SURF_DIST .01
+
+struct Sphere
+{
+    vec3 Position;
+    float Radius;
+};
+
+/*Scene*/
+
+Sphere s1 = {vec3(0.0f, 0.0f, 6.0f), 1.0f};
+
+/*Scene*/
+
+float SphereSDF(Sphere sphere, vec3 p)
+{
+    return length(p - sphere.Position) - sphere.Radius;
+}
 
 float GetDist(vec3 p)
 {
     vec4 s = vec4(0, 1, 6, 1);
-    vec4 s2 = vec4(2, 1, 3, 1);
 
-    float sphereDist = length(p-s.xyz)-s.w;
-    float sphere2Dist = length(p-s2.xyz)-s2.w;
-    float planeDist = p.y;
-
-    float d = min(min(sphereDist, planeDist), sphere2Dist);
+    float sphereDist = SphereSDF(s1, p);
+    float d = sphereDist; // min
     return d;
 }
 
@@ -32,7 +45,7 @@ float RayMarch(vec3 ro, vec3 rd)
 }
 
 in vec2 FragCoord;
-vec3 ro = vec3(0.0f, 2.0f, 0.0f);
+uniform vec3 ro;
 
 out vec4 FragColor;
 void main()

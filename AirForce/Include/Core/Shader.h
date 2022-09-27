@@ -20,6 +20,9 @@ namespace AirForce
             Shader(std::string VertexShaderPath, std::string FragmentShaderPath);
             void use();
 
+            void setFloat(const char* uniformName, float val);
+            void setInt(const char* uniformName, int val);
+
             void setVec3(const char* uniformName, const glm::vec3& val);
             void setVec3(const char* uniformName, glm::vec3&& val);
     };

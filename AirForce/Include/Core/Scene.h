@@ -8,6 +8,7 @@
 
 #include <Graphics/Framebuffer.h>
 #include <Core/Shader.h>
+#include <Utils/Camera.h>
 
 #include <glm/vec3.hpp>
 
@@ -20,9 +21,10 @@ namespace AirForce
     private:
         Framebuffer m_Framebuffer{800, 600};
     public:
+        AirForce::Shader m_Shader{"./../Shaders/raymarch.vs", "./../Shaders/raymarch.fs"};
         std::string Name;
         glm::vec3 ClearColor;
-        AirForce::Shader m_Shader{"./../Shaders/raymarch.vs", "./../Shaders/raymarch.fs"};
+        Camera m_Camera{};
         
         Scene(std::string Name, glm::vec3 ClearColor = {0.31f, 0.31f, 0.31f});
 
